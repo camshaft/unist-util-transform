@@ -1,6 +1,6 @@
 {
   "name": "unist-util-transform",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Unist transformer",
   "main": "index.js",
   "repository": "https://github.com/camshaft/unist-util-transform.git",
