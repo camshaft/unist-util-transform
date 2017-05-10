@@ -1,0 +1,9 @@
+{
+  "name": "unist-util-transform",
+  "version": "1.0.0",
+  "description": "Unist transformer",
+  "main": "index.js",
+  "repository": "https://github.com/camshaft/unist-util-transform.git",
+  "author": "Cameron Bytheway <bytheway.cameron@gmail.com>",
+  "license": "MIT"
+}
