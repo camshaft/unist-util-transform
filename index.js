@@ -22,9 +22,11 @@ exports = module.exports = function transform(ast, mapper) {
 
 exports.normalize = normalize;
 function normalize(mapper) {
+  if (mapper.normalized) return mapper;
   if (typeof mapper === 'function') mapper = {enter: mapper};
   wrap(mapper, 'enter');
   wrap(mapper, 'exit');
+  mapper.normalized = true;
   return mapper;
 };
 
