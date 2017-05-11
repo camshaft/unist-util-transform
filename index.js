@@ -2,7 +2,7 @@ exports = module.exports = function transform(ast, mapper) {
   mapper = normalize(mapper);
   var reverse = mapper.reverse;
   function traverse(node, index, parent) {
-    node = mapper.enter(node, index, parent) || node;
+    node = mapper.enter(node, index, parent);
 
     if (node.children) {
       node.children = (
@@ -12,10 +12,12 @@ exports = module.exports = function transform(ast, mapper) {
       ).map(function(child, index) {
         if (reverse) index = node.children.length - 1 - index;
         return traverse(child, index, node);
+      }).filter(function(child) {
+        return child !== null;
       });
     }
 
-    return mapper.exit(node, index, parent) || node;
+    return mapper.exit(node, index, parent);
   }
   return traverse(ast, null, null);
 };
@@ -40,7 +42,11 @@ function wrap(mapper, name) {
 
   mapper[name] = function(node) {
     return !types || types.has(node.type) ?
-      fn.apply(mapper, arguments) :
+      mapReturn(fn.apply(mapper, arguments), node) :
       node;
   };
 };
+
+function mapReturn(returnValue, node) {
+  return typeof returnValue === 'undefined' ? node : returnValue;
+}
