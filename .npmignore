@@ -1,0 +1,8 @@
+.nyc_output
+coverage
+lib/*.test.js
+src/*.test.js
+ts
+tsconfig.json
+tsconfig.lib.json
+tslint.json
