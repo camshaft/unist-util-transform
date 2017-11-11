@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "ts",
+    "baseUrl": ".",
+    "declarationDir": null,
+
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "declaration": false
+  },
+  "include": [
+    "ts/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/**"
+  ]
+}
