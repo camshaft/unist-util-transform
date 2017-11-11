@@ -1,6 +1,6 @@
 {
   "name": "unist-util-transform",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Unist transformer",
   "main": "lib/index.js",
   "typings": "src/index.d.ts",
